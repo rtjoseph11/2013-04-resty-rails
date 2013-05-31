@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   respond_to :html, :json, :js
   def index
+    render :json => Comment.find(:all)
   end
 
   # GET /comments/1
@@ -32,5 +33,10 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   def destroy
+    if Comment.destroy params['id']
+      render :nothing => true, :status => 204
+    else
+      render :nothing => true, :status => 400
+    end
   end
 end
