@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  respond_to :html, :json, :js
   def index
     render :json => Comment.find(:all)
   end
