@@ -58,6 +58,12 @@ Clams::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  resources :comments
+  resources :groups
+  resources :posts
+  resources :statuses
+  resources :subscriptions
+  resources :users
 end
 
 if Rails.env.development?
