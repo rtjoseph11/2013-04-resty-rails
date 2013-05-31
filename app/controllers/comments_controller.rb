@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  # GET /comments
   def index
   end
 
@@ -10,6 +9,12 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
+    newComment = Comment.new params['comment']
+    if newComment.save
+      render :nothing => true, :status => 201
+    else
+      render :nothing => true, :status => 400
+    end
   end
 
   # PUT /comments/1
